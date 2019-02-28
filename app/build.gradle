@@ -1,0 +1,38 @@
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        applicationId "com.example.gavin.myapplication"
+        minSdkVersion 21
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'com.android.support:appcompat-v7:24.0.0'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'com.android.support.test:runner:1.0.2'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    //implementation 'com.github.nkzawa:socket.io-client:0.3.0'
+    implementation('io.socket:socket.io-client:1.0.0') {//最新包
+        exclude group: 'org.json', module: 'json'
+        //处理： WARNING: Dependency org.json:json:20090211 is ignore
+    }
+    implementation 'org.java-websocket:Java-WebSocket:1.3.9'
+    implementation 'com.alibaba:fastjson:1.1.70.android'
+
+    implementation 'com.github.TrustWallet:trust-web3-provider:0.2.1'
+    implementation 'com.github.TrustWallet:TrustSdk-android:0.01.13'
+}
